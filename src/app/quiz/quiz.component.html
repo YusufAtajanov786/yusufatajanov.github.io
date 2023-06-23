@@ -1,0 +1,15 @@
+<ng-container *ngIf="question">
+    <div class="quiz-content">
+        <h3 class="question">{{ question.question | htmlEntity}} </h3>
+        <div class="options">
+            <div class="button" *ngFor="let answer of question.incorrect_answers; let i = index"
+                (click)="onAnswerClicked(answer)">
+                <input type="radio" name="{{question}}" [value]="answer" [(ngModel)]="selectedAnswer" />
+                <label class="btn btn-default" [ngClass]="{ 'selected': selectedAnswer === answer }">
+                    {{answer | htmlEntity}}
+                </label>
+            </div>
+        </div>
+    </div>
+    <br>
+</ng-container>

@@ -1,0 +1,48 @@
+.container{
+   padding: 10px;
+   align-items: center;
+
+   .controls-section{
+        padding: 20px;
+
+        .controls-section-item{
+            display: block;
+            margin: 5px;
+            .controls-section-item__label{
+                margin: 10px;
+                font-size: 18px;
+            }
+
+            .controls-section-item__select{
+                width: 200px;
+                height: 25px;
+            }
+        }
+   }
+
+   .btn {
+    margin: 20px;
+    padding: 15px 20px;
+    width: 250px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #45a049;
+  }
+  
+  .btn:active {
+    background-color: #3d8b3d;
+  }
+
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,38 @@
+.quiz-content {
+    display: block;
+    padding: 20px;
+  }
+  
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .button {
+    margin: 0 10px 10px 0;
+    position: relative;
+  }
+  
+  .button label {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    line-height: 1.8em;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button input[type="radio"] {
+    display: none;
+  }
+  
+  .button input[type="radio"]:checked + label {
+    background: #20b8be;
+    border-radius: 4px;
+  }
+  
+  .button label:hover {
+    background: #20b8be;
+    border-radius: 4px;
+  }

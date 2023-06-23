@@ -1,0 +1,40 @@
+<div class="container">
+    <form [formGroup]="quizForm" (ngSubmit)="onStartQuiz()">
+      <div class="controls-section">
+        <div class="controls-section-item">
+          <label class="controls-section-item__label" for="categorySelect">Select a category:</label>
+          <select id="categorySelect" formControlName="categorySelect" class="controls-section-item__select" >
+            <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+          </select>
+          <div class="error-message" *ngIf="quizForm.controls['categorySelect'].touched && quizForm.controls['categorySelect'].errors?.['required']">
+            Category is required.
+          </div>
+        </div>
+        <div class="controls-section-item">
+          <label for="difficultySelect" class="controls-section-item__label">Select a difficulty:</label>
+          <select id="difficultySelect" formControlName="difficultySelect" class="controls-section-item__select" >
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <div class="error-message" *ngIf="quizForm.controls['difficultySelect'].touched && quizForm.controls['difficultySelect'].errors?.['required']">
+            Difficulty is required.
+          </div>
+        </div>
+        <div>
+          <button id="createBtn" class="btn" type="submit" [disabled]="quizForm.invalid">Create Quiz</button>
+        </div>
+      </div>
+    </form>
+  
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+  
+    <app-quiz *ngFor="let question of questions" [question]="question" (answer)="onAnswerClicked($event)"></app-quiz>
+
+    <div class="controls-section">
+        <div class="controls-section-item">
+            <button class="btn" *ngIf="isSubmitBtnVisible" (click)="submitQuiz()">Submit</button>
+        </div>
+    </div>
+</div>
+  

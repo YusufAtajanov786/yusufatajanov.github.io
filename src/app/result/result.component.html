@@ -1,0 +1,19 @@
+<h1>Result</h1>
+
+<div *ngFor="let question of questions">
+  <p>{{ question.question | htmlEntity }}</p>
+  <div>
+    <button class="btn"
+      *ngFor="let answer of question.incorrect_answers; let i = index"
+      [style.backgroundColor]="isCorrectAns(question.question, answer, question.correct_answer)"
+    >
+      <label >{{ answer | htmlEntity }}</label>
+    </button>
+  </div>
+</div>
+
+<div [ngStyle]="{ backgroundColor: getScoreColor() }" class="score-container">
+    <h2>Final Score: {{ getScore() }}</h2>
+</div>
+
+<button class="btn btn-primary" (click)="onCreateNewClicked()">Create a new Quiz</button>
